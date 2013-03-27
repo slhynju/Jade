@@ -16,4 +16,11 @@ public final class NumberUtil {
 	public static NumberFormat newFormat(int fraction) {
 		return newFormat(fraction, fraction, false);
 	}
+
+	public static int toInt(String s, int defaultValue) {
+		if (StringUtil.isEmpty(s)) {
+			return defaultValue;
+		}
+		return Integer.parseInt(s);
+	}
 }
