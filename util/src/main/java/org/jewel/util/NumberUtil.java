@@ -23,4 +23,18 @@ public final class NumberUtil {
 		}
 		return Integer.parseInt(s);
 	}
+
+	public static long toLong(String s, long defaultValue) {
+		if (StringUtil.isEmpty(s)) {
+			return defaultValue;
+		}
+		return Long.parseLong(s);
+	}
+
+	public static double toDouble(String s, double defaultValue) {
+		if (StringUtil.isEmpty(s)) {
+			return defaultValue;
+		}
+		return Double.parseDouble(s);
+	}
 }

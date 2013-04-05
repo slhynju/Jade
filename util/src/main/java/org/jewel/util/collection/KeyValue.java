@@ -14,6 +14,10 @@ public class KeyValue<K, V> {
 		this(null, null);
 	}
 
+	public KeyValue(K key) {
+		this(key, null);
+	}
+
 	public KeyValue(K key, V value) {
 		this.key = key;
 		this.value = value;
