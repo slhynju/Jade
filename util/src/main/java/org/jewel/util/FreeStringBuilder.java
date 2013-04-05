@@ -8,6 +8,8 @@ import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Deque;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.jewel.JewelException;
@@ -190,6 +192,21 @@ public final class FreeStringBuilder implements Serializable, Appendable,
 		if (CollectionUtil.notEmpty(objects)) {
 			for (Object o : objects) {
 				append(o);
+				sb.append(separator);
+			}
+			deleteEnd(separator.length());
+		}
+		sb.append(rightBoundary);
+		return this;
+	}
+
+	public FreeStringBuilder appendStack(Deque<?> stack, String leftBoundary,
+			String separator, String rightBoundary) {
+		sb.append(leftBoundary);
+		if (CollectionUtil.notEmpty(stack)) {
+			Iterator<?> it = stack.descendingIterator();
+			while (it.hasNext()) {
+				append(it.next());
 				sb.append(separator);
 			}
 			deleteEnd(separator.length());

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -53,6 +55,26 @@ public final class PathUtil {
 			return null;
 		}
 		return Paths.get(pathName);
+	}
+
+	public static Path findResource(String pathName) {
+		if (StringUtil.isEmpty(pathName)) {
+			return null;
+		}
+		ClassLoader classLoader = Thread.currentThread()
+				.getContextClassLoader();
+		URL url = classLoader.getResource(pathName);
+		if (url == null) {
+			return null;
+		}
+		try {
+			return Paths.get(url.toURI());
+		} catch (URISyntaxException e) {
+			StringBuilder sb = new StringBuilder("Cannot find file ");
+			sb.append(pathName).append(". Unknown URL syntax ").append(url)
+					.append('.');
+			throw new JewelException(sb, e);
+		}
 	}
 
 	public static Path openDirectory(String pathName) {
