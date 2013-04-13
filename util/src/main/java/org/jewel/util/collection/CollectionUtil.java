@@ -14,6 +14,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 /**
  * Various Collection utility methods.
@@ -62,6 +63,14 @@ public final class CollectionUtil {
 			return new ArrayList<>(0);
 		}
 		return new ArrayList<>(c);
+	}
+
+	public static List<String> toList(StringTokenizer tokenizer) {
+		List<String> list = new ArrayList<>();
+		while (tokenizer.hasMoreTokens()) {
+			list.add(tokenizer.nextToken());
+		}
+		return list;
 	}
 
 	public static List<Integer> toList(int... array) {
