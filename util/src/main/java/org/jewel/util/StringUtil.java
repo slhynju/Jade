@@ -123,6 +123,19 @@ public final class StringUtil {
 		return s.substring(0, end);
 	}
 
+	public static String wrap(String s, String wrapper) {
+		StringBuilder sb = new StringBuilder(wrapper);
+		sb.append(s).append(wrapper);
+		return sb.toString();
+	}
+
+	public static String unwrap(String s, int wrapperLength) {
+		if (wrapperLength * 2 >= s.length()) {
+			return "";
+		}
+		return s.substring(wrapperLength, s.length() - wrapperLength);
+	}
+
 	public static String firstCharToUpperCase(String s) {
 		if (isEmpty(s)) {
 			return "";
