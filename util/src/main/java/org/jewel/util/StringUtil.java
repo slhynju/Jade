@@ -48,6 +48,16 @@ public final class StringUtil {
 				|| "f".equalsIgnoreCase(s) || "false".equalsIgnoreCase(s);
 	}
 
+	public static boolean isDigits(String s) {
+		for (int I = 0; I < s.length(); I++) {
+			char c = s.charAt(I);
+			if (!Character.isDigit(c)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static boolean startWith(CharSequence s, String str) {
 		if (str.length() > s.length()) {
 			return false;
