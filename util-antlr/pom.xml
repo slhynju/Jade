@@ -3,30 +3,23 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.jade</groupId>
-	<artifactId>jade-util</artifactId>
+	<artifactId>jade-util-antlr</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<dependencies>
 		<!-- compile dependencies -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
-		</dependency>
-		<!-- runtime dependencies -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.5</version>
-			<scope>runtime</scope>
+			<groupId>org.jade</groupId>
+			<artifactId>jade-util</artifactId>
+			<version>0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-			<scope>runtime</scope>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>3.5</version>
 		</dependency>
+		<!--  runtime dependencies -->
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
