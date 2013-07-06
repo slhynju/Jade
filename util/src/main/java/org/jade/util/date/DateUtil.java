@@ -86,7 +86,7 @@ public final class DateUtil {
 			return c.getTime();
 		default:
 			String message = String
-					.format("Cannot truncate date with given field %d. Hive only understands field YEAR(1), MONTH(2), DATE(5), DAY_OF_WEEK(7), HOUR_OF_DAY(11), MINUTE(12), SECOND(13).",
+					.format("Cannot truncate date with given field %d. Only understands field YEAR(1), MONTH(2), DATE(5), DAY_OF_WEEK(7), HOUR_OF_DAY(11), MINUTE(12), SECOND(13).",
 							precision);
 			throw new JadeException(message);
 		}

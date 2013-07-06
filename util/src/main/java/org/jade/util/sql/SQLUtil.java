@@ -145,5 +145,17 @@ public final class SQLUtil {
 		rs.close();
 		throw new JadeException("No ResultSet returned from query.");
 	}
+	
+	public static long executeCountLong(PreparedStatement ps) throws SQLException {
+		ResultSet rs = ps.executeQuery();
+		if (rs.next()) {
+			long l = rs.getLong(1);
+			rs.close();
+			return l;
+		}
+		// shall never happen.
+		rs.close();
+		throw new JadeException("No ResultSet returned from query.");
+	}
 
 }
